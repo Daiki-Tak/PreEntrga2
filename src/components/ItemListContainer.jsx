@@ -1,6 +1,9 @@
 import ItemList from './ItemList'
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = ({ }) => {
+    const { id } = useParams();
+
     const productos = [
         { id: 1, name: "Product A", price: 1000, category: "Items" },
         { id: 2, name: "Product B", price: 2000, category: "Medicine" },
@@ -9,10 +12,12 @@ const ItemListContainer = ({ }) => {
         { id: 5, name: "Product E", price: 1000, category: "Key Items" }
     ]
 
+    const filteredProducts = productos.filter(x => !id || x.category === id);
+
     const mostrarProductos = new Promise((resolve, reject) => {
-        if (productos.length > 0) {
+        if (filteredProducts.length > 0) {
             setTimeout(() => {
-                resolve(productos)
+                resolve(filteredProducts)
             }, 5000)
         } else {
             reject('No se pueden mostrar los productos')
@@ -29,7 +34,7 @@ const ItemListContainer = ({ }) => {
 
     return (
        <>
-            <ItemList productos={productos} />
+            <ItemList productos={filteredProducts} />
        </>
     )
 }

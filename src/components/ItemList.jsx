@@ -1,8 +1,9 @@
 import Item from "./Item"
+import { Flex } from "@chakra-ui/react"
 
 const ItemList = ({ productos }) => {
   return (
-    <div>
+    <Flex justifyContent='center' gap='2' wrap='wrap'>
         {
             productos.map((p) => {
                 return(
@@ -17,7 +18,7 @@ const ItemList = ({ productos }) => {
             })
         }
 
-    </div>
+    </Flex>
   )
 }
 
