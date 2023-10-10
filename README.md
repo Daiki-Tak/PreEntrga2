@@ -1,6 +1,6 @@
 # PokéStore
 
-##Bienvenido a mí tienda virtual!
+## Bienvenido a mí tienda virtual!
 
 En esta ocasión, con la ayuda de Chakra-UI y Bulbagarden Archives, construí una pequeña tienda virtual con algunos productos que pueden ser encontrados en distintas categorías en los juegos de Pokémon.
 En la pantalla principal se muestra un catálogo inicial de objetos, con una barra de navegación para seleccionar la categoría deseada desde el menú desplegable y una opción en cada producto para ver su detalle.
