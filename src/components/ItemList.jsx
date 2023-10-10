@@ -1,16 +1,17 @@
+import React from "react"
 import Item from "./Item"
 import { Flex } from "@chakra-ui/react"
 
-const ItemList = ({ productos }) => {
+const ItemList = ({ products }) => {
   return (
     <Flex justifyContent='center' gap='2' wrap='wrap'>
         {
-            productos.map((p) => {
+            products.map((p) => {
                 return(
                     <Item 
                         name={p.name} 
                         price={p.price}
-                        stock={p.stock}
+                        img={p.img}
                         key={p.id}
                         id={p.id}
                     />
@@ -22,4 +23,4 @@ const ItemList = ({ productos }) => {
   )
 }
 
-export default ItemList
+export default React.memo(ItemList)

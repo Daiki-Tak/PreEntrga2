@@ -1,4 +1,4 @@
-import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer, Image, } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList, MenuItem, Flex, Box, Spacer, Image, Button, ButtonGroup } from '@chakra-ui/react'
 import CartWidget from './CartWidget'
 import { Link } from 'react-router-dom'
 
@@ -7,44 +7,43 @@ const NavBar = () => {
     return (
         <>
             <Flex alignItems='center' bg='red.400'>
-                <Box p='4'>
-                    <Image src='src/assets/poke-ball.png' alt='Poke-ball' />
-                </Box>
                 <Box borderRadius='md' color='white' px={4} h={8}>
-                    <Link to={'/'}>
-                        PokéShop
+                    <ButtonGroup>
+                        <Link to={'/'}>
+                            <Button variant='ghost'>
+                                <Image
+                                    src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'
+                                    alt='Poke-ball' />
+                                PokéShop
+                            </Button>
+                        </Link>
+                        <Menu>
+                            <MenuButton as={Button} variant='ghost'>Categories</MenuButton>
+                            <MenuList style={{color:'black'}}>
+                                <Link to={`/category/${'items'}`}>
+                                    <MenuItem>Items</MenuItem>
+                                </Link>
+                                <Link to={`/category/${'medicine'}`}>
+                                    <MenuItem>Medicine</MenuItem>
+                                </Link>
+                                <Link to={`/category/${'tms & hms'}`}>
+                                    <MenuItem>TMs & HMs</MenuItem>
+                                </Link>
+                                <Link to={`/category/${'berries'}`}>
+                                    <MenuItem>Berries</MenuItem>
+                                </Link>
+                            </MenuList>
+                        </Menu>
+                    </ButtonGroup>
+                </Box>
+                <Spacer />
+                <Spacer />
+                <Box p='4'>
+                    <Link to='/cart'>
+                        <CartWidget />
                     </Link>
                 </Box>
-                <Spacer />
-                <Box p='4'>
-                    <Menu>
-                        <MenuButton>
-                            Categories
-                        </MenuButton>
-                        <MenuList>
-                            <Link to={`/category/${'Items'}`}>
-                                <MenuItem>Items</MenuItem>
-                            </Link>
-                            <Link to={`/Category/${'Medicine'}`}>
-                                <MenuItem>Medicine</MenuItem>
-                            </Link>
-                            <Link to={`/Category/${'TMs & HMs'}`}>
-                                <MenuItem>TMs & HMs</MenuItem>
-                            </Link>
-                            <Link to={`/Category/${'Berries'}`}>
-                                <MenuItem>Berries</MenuItem>
-                            </Link>
-                            <Link to={`/Category/${'Key Items'}`}>
-                                <MenuItem>Key Items</MenuItem>
-                            </Link>
-                        </MenuList>
-                    </Menu>
-                </Box>
-                <Spacer />
-                <Box p='4'>
-                    <CartWidget />
-                </Box>
-            </Flex>
+            </Flex >
 
         </>
     )
